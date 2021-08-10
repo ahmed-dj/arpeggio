@@ -696,10 +696,10 @@ class InteractionComplex:
                 other in sequence
         """
         self.atom_contacts = []
+        selection_set = set(self.selection)
 
         for atom_bgn, atom_end in self.ns.search_all(interacting_cutoff):
 
-            selection_set = set(self.selection)
             # IGNORE ANY HYDROGENS FOR THESE CONTACTS
             # IF HYDROGENS ARE PRESENT IN THE BIOPYTHON STRUCTURE FOR ANY REASON
             if atom_bgn.element.strip() == 'H' or atom_end.element.strip() == 'H':
